@@ -1,21 +1,29 @@
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
 
-exports.verifyToken = (req, res, next) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader) return res.status(403).json({ error: 'Token não fornecido' });
+const verifyToken = (req, res, next) => {
+  const token = req.headers['authorization']?.split(' ')[1]; // Bearer TOKEN
 
-  const token = authHeader.split(' ')[1];
+  if (!token) {
+    return res.status(403).send({ message: 'Nenhum token fornecido.' });
+  }
+
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) return res.status(401).json({ error: 'Token inválido' });
-    req.user = decoded;
+    if (err) {
+      return res.status(401).send({ message: 'Não autorizado!' });
+    }
+    req.userId = decoded.id;
+    req.userRole = decoded.role;
     next();
   });
 };
 
-exports.requireRole = (roles) => (req, res, next) => {
-  if (!roles.includes(req.user.role)) {
-    return res.status(403).json({ error: 'Acesso negado' });
-  }
-  next();
+const checkRole = (roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.userRole)) {
+      return res.status(403).send({ message: `Requer perfil de: ${roles.join(' ou ')}` });
+    }
+    next();
+  };
 };
+
+module.exports = { verifyToken, checkRole };
