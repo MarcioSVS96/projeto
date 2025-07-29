@@ -4,7 +4,7 @@ exports.validateRegister = [
   body('name').notEmpty(),
   body('email').isEmail(),
   body('password').isLength({ min: 6 }),
-  body('role').isIn(['admin', 'instructor', 'student']),
+  body('role').isIn(['admin', 'teacher', 'student']),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

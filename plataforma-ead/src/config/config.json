@@ -1,0 +1,24 @@
+{
+    "development": {
+      "username": "root",
+      "password": "",
+      "database": "plataforma_ead",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "root",
+      "password": "",
+      "database": "plataforma_ead_test",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "root",
+      "password": "",
+      "database": "plataforma_ead_prod",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
+  }
+  
