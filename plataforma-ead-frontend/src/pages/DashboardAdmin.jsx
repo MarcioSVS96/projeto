@@ -1,29 +1,51 @@
-import { useAuth } from '../contexts/AuthContext';
-import './Dashboard.css';
+import React, { useEffect, useState } from 'react';
+import './DashboardAdmin.css';
 
 export default function DashboardAdmin() {
-  const { user, logout } = useAuth();
+  const [resumo, setResumo] = useState({
+    totalAlunos: 0,
+    totalInstrutores: 0,
+    totalCursos: 0,
+  });
+
+  useEffect(() => {
+    // Simulação de chamada a uma API
+    const fetchData = async () => {
+      // Aqui você substituiria pelo fetch real
+      setResumo({
+        totalAlunos: 130,
+        totalInstrutores: 12,
+        totalCursos: 28,
+      });
+    };
+    fetchData();
+  }, []);
 
   return (
-    <div className="dashboard-container">
-      <div className="dashboard-card">
-        <h2>Dashboard do Admin</h2>
-        <p>Bem-vindo, {user?.email}!</p>
-        <div className="dashboard-buttons">
-          <button className="primary-btn">Gerenciar usuários</button>
-          <button className="logout-btn" onClick={logout}>Sair</button>
+    <div className="dashboard-admin-container">
+      <h1>Painel do Administrador</h1>
+
+      <div className="resumo-cards">
+        <div className="card">
+          <h2>Alunos</h2>
+          <p>{resumo.totalAlunos}</p>
+        </div>
+        <div className="card">
+          <h2>Instrutores</h2>
+          <p>{resumo.totalInstrutores}</p>
+        </div>
+        <div className="card">
+          <h2>Cursos</h2>
+          <p>{resumo.totalCursos}</p>
         </div>
       </div>
 
-      <section className="dashboard-section">
-        <h3>Gestão de Usuários</h3>
-        <p>Aprovar instrutores e alunos, editar permissões e acessos.</p>
-      </section>
-
-      <section className="dashboard-section">
-        <h3>Aprovar Cursos</h3>
-        <p>Gerencie os cursos enviados para aprovação.</p>
-      </section>
+      <div className="acoes-rapidas">
+        <h3>Ações rápidas</h3>
+        <button>Gerenciar Alunos</button>
+        <button>Gerenciar Instrutores</button>
+        <button>Gerenciar Cursos</button>
+      </div>
     </div>
   );
 }

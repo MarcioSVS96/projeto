@@ -1,0 +1,37 @@
+.dashboard-admin-container {
+    padding: 2rem;
+  }
+  
+  .resumo-cards {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .card {
+    background-color: #f4f4f4;
+    padding: 1.5rem;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .card h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .acoes-rapidas button {
+    margin-right: 1rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .acoes-rapidas button:hover {
+    background-color: #005fa3;
+  }
+  
