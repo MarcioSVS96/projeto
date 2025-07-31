@@ -34,4 +34,19 @@
   .acoes-rapidas button:hover {
     background-color: #005fa3;
   }
+  .botao-sair {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .botao-sair:hover {
+    background-color: #c9302c;
+  }
   

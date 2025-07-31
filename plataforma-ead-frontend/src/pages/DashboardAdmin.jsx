@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import './DashboardAdmin.css';
 
 export default function DashboardAdmin() {
@@ -8,10 +10,17 @@ export default function DashboardAdmin() {
     totalCursos: 0,
   });
 
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();          // Limpa o contexto de autenticação
+    navigate('/');     // Redireciona para a tela de login
+  };
+
   useEffect(() => {
     // Simulação de chamada a uma API
     const fetchData = async () => {
-      // Aqui você substituiria pelo fetch real
       setResumo({
         totalAlunos: 130,
         totalInstrutores: 12,
@@ -24,6 +33,10 @@ export default function DashboardAdmin() {
   return (
     <div className="dashboard-admin-container">
       <h1>Painel do Administrador</h1>
+
+      <button className="botao-sair" onClick={handleLogout}>
+        Sair
+      </button>
 
       <div className="resumo-cards">
         <div className="card">
