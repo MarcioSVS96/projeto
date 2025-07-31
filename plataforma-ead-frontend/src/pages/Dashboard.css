@@ -1,12 +1,22 @@
+/* Container principal com fundo gradiente e centralização */
 .dashboard-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
   background: linear-gradient(135deg, #2575fc, #6a11cb);
-  font-family: 'Segoe UI', sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-sizing: border-box;
+  color: white; /* para texto no fundo azul */
 }
 
+/* Card branco dentro do container */
 .dashboard-card {
   background-color: white;
   padding: 40px 50px;
@@ -15,24 +25,34 @@
   text-align: center;
   width: 100%;
   max-width: 420px;
-}
-
-.dashboard-card h2 {
-  margin-bottom: 10px;
+  margin: 0 auto;
   color: #333;
 }
 
+/* Título dentro do card */
+.dashboard-card h2 {
+  margin-bottom: 10px;
+  color: #007acc;
+}
+
+/* Texto dentro do card */
 .dashboard-card p {
   margin-bottom: 30px;
   color: #555;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
+/* Container para os botões */
 .dashboard-buttons {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  max-width: 420px;
+  margin: 0 auto;
 }
 
+/* Botão principal */
 .primary-btn {
   background-color: #2575fc;
   color: white;
@@ -49,10 +69,11 @@
   background-color: #1a52d8;
 }
 
+/* Botão para logout */
 .logout-btn {
   background-color: transparent;
-  color: #2575fc;
-  border: 2px solid #2575fc;
+  color: #1a52d8;
+  border: 2px solid #1a52d8;
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;
@@ -61,6 +82,46 @@
 }
 
 .logout-btn:hover {
-  background-color: #2575fc;
+  background-color: #1a52d8;
   color: white;
+}
+
+/* Seções internas do dashboard fora dos cards, para texto */
+.dashboard-section {
+  margin-top: 30px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+/* Títulos das seções */
+.dashboard-section h2,
+.dashboard-section h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Texto das seções */
+.dashboard-section p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 600px) {
+  .dashboard-container {
+    margin: 20px;
+    padding: 20px 15px;
+  }
+
+  .dashboard-card,
+  .dashboard-buttons {
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+
+  .primary-btn {
+    font-size: 0.9rem;
+  }
 }

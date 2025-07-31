@@ -12,11 +12,17 @@ export function UsersProvider({ children }) {
   const [users, setUsers] = useState(initialUsers);
 
   function addUser(newUser) {
-    setUsers(prev => [...prev, { ...newUser, id: prev.length + 1, role: 'aluno' }]);
+    setUsers(prev => [
+      ...prev,
+      { ...newUser, id: prev.length + 1, role: 'aluno' }
+    ]);
   }
 
   function findUser(email, password) {
-    return users.find(u => u.email === email && u.password === password);
+    const emailLower = email.trim().toLowerCase();
+    return users.find(
+      u => u.email.toLowerCase() === emailLower && u.password === password
+    );
   }
 
   return (

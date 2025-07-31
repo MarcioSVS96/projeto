@@ -1,34 +1,18 @@
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import './Dashboard.css';
+import { useEffect } from 'react';
 
 export default function Dashboard() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
-  };
+  useEffect(() => {
+    if (!user) return;
 
-  const handleVerCursos = () => {
-    navigate('/courses');
-  };
+    if (user.role === 'admin') navigate('/dashboard/admin');
+    else if (user.role === 'instrutor') navigate('/dashboard/instrutor');
+    else if (user.role === 'aluno') navigate('/dashboard/aluno');
+  }, [user, navigate]);
 
-  return (
-    <div className="dashboard-container">
-      <div className="dashboard-card">
-        <h2>Bem-vindo, {user?.email}</h2>
-        <p>Acesse seus cursos e continue aprendendo.</p>
-        <div className="dashboard-buttons">
-          <button className="primary-btn" onClick={handleVerCursos}>
-            Ver Meus Cursos
-          </button>
-          <button className="logout-btn" onClick={handleLogout}>
-            Sair
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+  return null; // Pode mostrar um loading ou nada
 }

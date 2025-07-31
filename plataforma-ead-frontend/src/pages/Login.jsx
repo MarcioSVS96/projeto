@@ -1,23 +1,28 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { useUsers } from '../contexts/UsersContext';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
 
 export default function Login() {
   const { login } = useAuth();
+  const { findUser } = useUsers();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setError('');
 
-    if (email === 'admin@ead.com' && password === '1234') {
-      login({ email, role: 'admin' });
+    const user = findUser(email.trim(), password);
+    if (user) {
+      login({ email: user.email, role: user.role });
       navigate('/dashboard');
     } else {
-      alert('Credenciais inválidas!');
+      setError('Credenciais inválidas!');
     }
   };
 
@@ -30,14 +35,17 @@ export default function Login() {
             type="email"
             placeholder="Email"
             onChange={e => setEmail(e.target.value)}
+            value={email}
             required
           />
           <input
             type="password"
             placeholder="Senha"
             onChange={e => setPassword(e.target.value)}
+            value={password}
             required
           />
+          {error && <p className="error-msg">{error}</p>}
           <button type="submit">Entrar</button>
         </form>
         <p className="register-link">

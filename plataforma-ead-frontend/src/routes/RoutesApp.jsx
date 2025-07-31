@@ -1,9 +1,15 @@
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
+import DashboardAluno from '../pages/DashboardAluno';
+import DashboardInstrutor from '../pages/DashboardInstrutor';
+import DashboardAdmin from '../pages/DashboardAdmin';
 import Courses from '../pages/Courses';
 import NotFound from '../pages/NotFound';
+
 import PrivateRoute from './PrivateRoute';
 
 export default function AppRoutes() {
@@ -19,6 +25,33 @@ export default function AppRoutes() {
           element={
             <PrivateRoute>
               <Dashboard />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/dashboard/aluno"
+          element={
+            <PrivateRoute>
+              <DashboardAluno />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/dashboard/instrutor"
+          element={
+            <PrivateRoute>
+              <DashboardInstrutor />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/dashboard/admin"
+          element={
+            <PrivateRoute>
+              <DashboardAdmin />
             </PrivateRoute>
           }
         />
