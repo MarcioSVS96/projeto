@@ -1,16 +1,19 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from '../pages/Login';
+import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
 import Courses from '../pages/Courses';
 import NotFound from '../pages/NotFound';
-import PrivateRoute from './PrivateRoute'; // importe o PrivateRoute do exemplo acima
-// ou declare dentro do mesmo arquivo se preferir
+import PrivateRoute from './PrivateRoute';
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
         <Route
           path="/dashboard"
           element={
@@ -19,6 +22,7 @@ export default function AppRoutes() {
             </PrivateRoute>
           }
         />
+
         <Route
           path="/courses"
           element={
@@ -27,6 +31,7 @@ export default function AppRoutes() {
             </PrivateRoute>
           }
         />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

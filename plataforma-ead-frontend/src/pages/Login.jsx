@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
 
 export default function Login() {
@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault();
 
     if (email === 'admin@ead.com' && password === '1234') {
-      login({ email });
+      login({ email, role: 'admin' });
       navigate('/dashboard');
     } else {
       alert('Credenciais inválidas!');
@@ -40,6 +40,12 @@ export default function Login() {
           />
           <button type="submit">Entrar</button>
         </form>
+        <p className="register-link">
+          Não tem uma conta?{' '}
+          <Link to="/register" className="link">
+            Registre-se aqui
+          </Link>
+        </p>
       </div>
     </div>
   );

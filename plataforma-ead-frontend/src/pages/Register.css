@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -7,28 +7,28 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-.login-box {
+.register-box {
   background-color: white;
   padding: 40px 50px;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 400px;
   text-align: center;
 }
 
-.login-box h2 {
+.register-box h2 {
   margin-bottom: 30px;
   color: #333;
 }
 
-.login-box form {
+.register-box form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.login-box input {
+.register-box input {
   padding: 14px;
   font-size: 1rem;
   border-radius: 8px;
@@ -36,12 +36,17 @@
   transition: border 0.3s;
 }
 
-.login-box input:focus {
+.register-box input:focus {
   border-color: #2575fc;
   outline: none;
 }
 
-.login-box button {
+.error-msg {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.register-box button {
   padding: 14px;
   font-size: 1rem;
   background-color: #2575fc;
@@ -53,23 +58,6 @@
   transition: background-color 0.3s ease;
 }
 
-.login-box button:hover {
+.register-box button:hover {
   background-color: #1a52d8;
-}
-
-.register-link {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.register-link .link {
-  color: #2575fc;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.register-link .link:hover {
-  text-decoration: underline;
 }
