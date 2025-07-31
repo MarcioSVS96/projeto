@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/plataformaead/static/css/main.a284a628.css",
+    "main.js": "/plataformaead/static/js/main.86a7c15a.js",
+    "static/js/453.eb28c2a1.chunk.js": "/plataformaead/static/js/453.eb28c2a1.chunk.js",
+    "index.html": "/plataformaead/index.html",
+    "main.a284a628.css.map": "/plataformaead/static/css/main.a284a628.css.map",
+    "main.86a7c15a.js.map": "/plataformaead/static/js/main.86a7c15a.js.map",
+    "453.eb28c2a1.chunk.js.map": "/plataformaead/static/js/453.eb28c2a1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a284a628.css",
+    "static/js/main.86a7c15a.js"
+  ]
+}
