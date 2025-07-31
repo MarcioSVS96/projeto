@@ -10,6 +10,7 @@ import DashboardInstrutor from '../pages/DashboardInstrutor';
 import DashboardAdmin from '../pages/DashboardAdmin';
 import Courses from '../pages/Courses';
 import NotFound from '../pages/NotFound';
+import CursoAulas from '../pages/CursoAulas';
 
 
 import PrivateRoute from './PrivateRoute';
@@ -22,6 +23,7 @@ export default function AppRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/curso/:id" element={<CursoDetalhes />} />
+        <Route path="/curso/:id/aulas" element={<CursoAulas />} />
 
         <Route
           path="/dashboard"
