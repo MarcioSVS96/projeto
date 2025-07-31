@@ -1,12 +1,15 @@
 import './styles/global.css';
 import RoutesApp from './routes/RoutesApp';
 import { AuthProvider } from './contexts/AuthContext';
+import { UsersProvider } from './contexts/UsersContext';
 
 function App() {
   return (
-    <AuthProvider>
-      <RoutesApp />
-    </AuthProvider>
+    <UsersProvider>
+      <AuthProvider>
+        <RoutesApp />
+      </AuthProvider>
+    </UsersProvider>
   );
 }
 
