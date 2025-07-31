@@ -16,7 +16,6 @@ export default function Register() {
     e.preventDefault();
     setError('');
 
-    // Validações básicas
     if (!email || !password || !confirmPassword) {
       setError('Preencha todos os campos.');
       return;
@@ -26,14 +25,12 @@ export default function Register() {
       return;
     }
 
-    // Verificar se o email já existe
     const userExists = users.some(user => user.email === email);
     if (userExists) {
       setError('Email já cadastrado.');
       return;
     }
 
-    // Adicionar usuário com role 'aluno'
     addUser({ email, password });
     alert('Cadastro realizado com sucesso! Faça login.');
     navigate('/login');
@@ -68,6 +65,13 @@ export default function Register() {
           {error && <p className="error-msg">{error}</p>}
           <button type="submit">Cadastrar</button>
         </form>
+        <button
+          className="back-btn"
+          onClick={() => navigate('/login')}
+          style={{ marginTop: '15px' }}
+        >
+          Voltar
+        </button>
       </div>
     </div>
   );
