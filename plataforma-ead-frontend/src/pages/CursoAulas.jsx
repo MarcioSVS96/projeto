@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import './CursoAulas.css';
 
 const cursos = [
   {
@@ -28,13 +29,11 @@ export default function CursoAulas() {
 
   const curso = cursos.find(c => c.id === parseInt(id));
   const [aulasConcluidas, setAulasConcluidas] = useState(() => {
-    // tenta carregar do localStorage o progresso
     const saved = localStorage.getItem(`progresso_curso_${id}`);
     return saved ? JSON.parse(saved) : [];
   });
 
   useEffect(() => {
-    // salva progresso no localStorage sempre que aulasConcluidas muda
     localStorage.setItem(`progresso_curso_${id}`, JSON.stringify(aulasConcluidas));
   }, [aulasConcluidas, id]);
 
@@ -51,24 +50,27 @@ export default function CursoAulas() {
   const progressoPercentual = Math.round((aulasConcluidas.length / curso.aulas.length) * 100);
 
   return (
-    <div style={{ maxWidth: 700, margin: '2rem auto', padding: '1rem', background: '#fff', borderRadius: 8 }}>
-      <button onClick={() => navigate(-1)} style={{ marginBottom: 20 }}>← Voltar</button>
-      <h1>{curso.nome}</h1>
-      <p>Progresso: {progressoPercentual}%</p>
-
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+    <div className="curso-aulas-container">
+      <header className="curso-aulas-header">
+        <button onClick={() => navigate(-1)} className="curso-aulas-back-btn">← Voltar</button>
+        <h1>{curso.nome}</h1>
+      </header>
+      <p className="curso-aulas-progress">Progresso: {progressoPercentual}%</p>
+      <ul className="curso-aulas-list">
         {curso.aulas.map(aula => (
-          <li key={aula.id} style={{ marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <li key={aula.id}>
             <div>
-              <strong>{aula.titulo}</strong> - <small>{aula.duracao}</small>
+              <strong>{aula.titulo}</strong><small>{` - ${aula.duracao}`}</small>
             </div>
-            <label>
-              <input 
-                type="checkbox" 
-                checked={aulasConcluidas.includes(aula.id)} 
-                onChange={() => toggleConcluida(aula.id)} 
-              /> Concluída
-            </label>
+            <div className="curso-aulas-checkbox">
+              <label>
+                <input 
+                  type="checkbox" 
+                  checked={aulasConcluidas.includes(aula.id)} 
+                  onChange={() => toggleConcluida(aula.id)} 
+                /> Concluída
+              </label>
+            </div>
           </li>
         ))}
       </ul>

@@ -38,8 +38,32 @@ export default function Courses() {
           <div key={curso.id} className="course-card">
             <h2>{curso.nome}</h2>
             <p>{curso.descricao}</p>
-            <button onClick={() => navigate(`/curso/${curso.id}/aulas`)}>Ver Aulas</button>
-
+            <button onClick={() => navigate(`/curso/${curso.id}/aulas`)} style={{
+                marginTop: '1.5rem',
+                marginRight: '1rem',
+                padding: '12px 20px',
+                backgroundColor: '#2575fc',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}>Aulas</button>
+            <button 
+              onClick={() => navigate(`/curso/${curso.id}/quiz`)} 
+              style={{
+                marginTop: '1.5rem',
+                padding: '12px 20px',
+                backgroundColor: '#2575fc',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+            >
+              Fazer Quiz do Curso
+            </button>
 
           </div>
         ))}

@@ -1,0 +1,76 @@
+.curso-aulas-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.curso-aulas-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.curso-aulas-back-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #2575fc;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+
+.curso-aulas-back-btn:hover {
+  color: #1a52d8;
+}
+
+.curso-aulas-progress {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #007acc;
+}
+
+.curso-aulas-list {
+  list-style: none;
+  padding: 0;
+}
+
+.curso-aulas-list li {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f4ff;
+  transition: background-color 0.3s ease;
+}
+
+.curso-aulas-list li:hover {
+  background-color: #dce6ff;
+}
+
+.curso-aulas-list li strong {
+  font-size: 1.05rem;
+}
+
+.curso-aulas-list li small {
+  color: #555;
+  margin-left: 6px;
+}
+
+.curso-aulas-checkbox label {
+  cursor: pointer;
+  font-weight: 500;
+  color: #2575fc;
+}
+
+.curso-aulas-checkbox input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
