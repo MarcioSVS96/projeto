@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/projeto/static/css/main.a284a628.css",
-    "main.js": "/projeto/static/js/main.6d0e0439.js",
-    "static/js/453.eb28c2a1.chunk.js": "/projeto/static/js/453.eb28c2a1.chunk.js",
-    "index.html": "/projeto/index.html",
-    "main.a284a628.css.map": "/projeto/static/css/main.a284a628.css.map",
-    "main.6d0e0439.js.map": "/projeto/static/js/main.6d0e0439.js.map",
-    "453.eb28c2a1.chunk.js.map": "/projeto/static/js/453.eb28c2a1.chunk.js.map"
+    "main.css": "/projeto/plataforma-ead-frontend/static/css/main.a284a628.css",
+    "main.js": "/projeto/plataforma-ead-frontend/static/js/main.97952095.js",
+    "static/js/453.eb28c2a1.chunk.js": "/projeto/plataforma-ead-frontend/static/js/453.eb28c2a1.chunk.js",
+    "index.html": "/projeto/plataforma-ead-frontend/index.html",
+    "main.a284a628.css.map": "/projeto/plataforma-ead-frontend/static/css/main.a284a628.css.map",
+    "main.97952095.js.map": "/projeto/plataforma-ead-frontend/static/js/main.97952095.js.map",
+    "453.eb28c2a1.chunk.js.map": "/projeto/plataforma-ead-frontend/static/js/453.eb28c2a1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a284a628.css",
-    "static/js/main.6d0e0439.js"
+    "static/js/main.97952095.js"
   ]
 }
