@@ -1,29 +1,45 @@
-import { useAuth } from '../contexts/AuthContext';
-import './Dashboard.css';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './DashboardInstrutor.css';
 
 export default function DashboardInstrutor() {
-  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const cursos = [
+    { id: 1, titulo: "Curso de React", descricao: "Aprenda React do zero", aulas: 10 },
+    { id: 2, titulo: "Curso de Node.js", descricao: "Backend com Node.js", aulas: 8 },
+  ];
+
+  const handleNovoCurso = () => {
+    // redirecionar ou abrir modal
+    alert("Função para adicionar novo curso");
+  };
+
+  const handleEditar = (id) => {
+    alert(`Editar curso ID: ${id}`);
+  };
+
+  const handleExcluir = (id) => {
+    alert(`Excluir curso ID: ${id}`);
+  };
 
   return (
-    <div className="dashboard-container">
-      <div className="dashboard-card">
-        <h2>Dashboard do Instrutor</h2>
-        <p>Bem-vindo, {user?.email}!</p>
-        <div className="dashboard-buttons">
-          <button className="primary-btn">Criar/Editar cursos</button>
-          <button className="logout-btn" onClick={logout}>Sair</button>
-        </div>
+    <div className="dashboard-instrutor">
+      <h2>Meus Cursos</h2>
+      <button className="btn-adicionar" onClick={handleNovoCurso}>+ Novo Curso</button>
+      <div className="lista-cursos">
+        {cursos.map((curso) => (
+          <div key={curso.id} className="card-curso">
+            <h3>{curso.titulo}</h3>
+            <p>{curso.descricao}</p>
+            <p><strong>Aulas:</strong> {curso.aulas}</p>
+            <div className="acoes">
+              <button onClick={() => handleEditar(curso.id)}>Editar</button>
+              <button onClick={() => handleExcluir(curso.id)}>Excluir</button>
+            </div>
+          </div>
+        ))}
       </div>
-
-      <section className="dashboard-section">
-        <h3>Gerencie seus cursos</h3>
-        <p>Crie, edite e organize seus cursos e módulos.</p>
-      </section>
-
-      <section className="dashboard-section">
-        <h3>Material de Apoio</h3>
-        <p>Envie vídeos, arquivos e outros recursos para os alunos.</p>
-      </section>
     </div>
   );
 }
