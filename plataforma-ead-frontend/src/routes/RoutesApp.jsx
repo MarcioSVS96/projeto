@@ -5,10 +5,12 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
 import DashboardAluno from '../pages/DashboardAluno';
+import CursoDetalhes from '../pages/CursoDetalhes';
 import DashboardInstrutor from '../pages/DashboardInstrutor';
 import DashboardAdmin from '../pages/DashboardAdmin';
 import Courses from '../pages/Courses';
 import NotFound from '../pages/NotFound';
+
 
 import PrivateRoute from './PrivateRoute';
 
@@ -19,6 +21,7 @@ export default function AppRoutes() {
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/curso/:id" element={<CursoDetalhes />} />
 
         <Route
           path="/dashboard"
@@ -64,7 +67,7 @@ export default function AppRoutes() {
             </PrivateRoute>
           }
         />
-
+        <Route path="/aluno/cursos" element={<Courses />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -38,7 +38,13 @@ export default function Courses() {
           <div key={curso.id} className="course-card">
             <h2>{curso.nome}</h2>
             <p>{curso.descricao}</p>
-            <button className="access-btn">Acessar Curso</button>
+            <button
+              className="access-btn"
+              onClick={() => navigate(`/curso/${curso.id}`)}
+            >
+              Acessar Curso
+            </button>
+
           </div>
         ))}
       </div>
