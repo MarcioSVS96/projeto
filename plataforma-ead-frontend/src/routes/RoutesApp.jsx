@@ -18,7 +18,7 @@ import PrivateRoute from './PrivateRoute';
 
 export default function AppRoutes() {
   return (
-    <HashRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
@@ -74,6 +74,6 @@ export default function AppRoutes() {
         <Route path="/aluno/cursos" element={<Courses />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </HashRouter>
+    </Router>
   );
 }
